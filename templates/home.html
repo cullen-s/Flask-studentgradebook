@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>HW4/5</title>
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+</head>
+<body style="background-color: #2BBBAD;">
+<br><br><br><br>
+<div class="container" style="background-color: rgb(255,255,255); padding: 20px; padding-top: 2px; box-shadow: 0 0 10px;">
+<h3>Enter student</h3>
+
+{%- for category, message in get_flashed_messages(with_categories = true) %}
+         <div class = "alert alert-danger" style="color: red;">
+            {{ message }}
+         </div>
+{%- endfor %}
+
+<form action = "{{ request.path }}" method = "POST">
+    <label for = "name">Name</label>	
+    <input type = "text" name="name" placeholder="Johnny Appleseed" />
+	<br>
+	<label for = "grade">Grade</label>
+	<input type="text" name="grade" placeholder="100" />
+	<br>
+	<input type="submit" name="submit" class="btn waves-effect waves-light" value="Submit" />
+</form>
+<br>
+<br>
+You can also
+<a href="{{ url_for('results') }}"> List all students on file</a> or
+<a href="{{ url_for('passed') }}"> List only students who passed</a>
+</div>
+
+
+<br><br>
+
+<div class="container" style="background-color: rgb(255,255,255); padding: 20px; padding-top: 2px; box-shadow: 0 0 5px;">
+<h3>Delete Student</h3>
+<form action=" {{ url_for('deleteStudent') }} " method="POST">
+<label for="id">Enter student ID</label>
+<input type="text" name="id" placeholder="000000" />
+<br>
+<input type="submit" name="delete" class="btn waves-effect waves-light" value="Delete" />
+</form>
+</div>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>HW4/5</title>
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+</head>
+<body style="background-color: rgb(64,112,156);">
+<br><br><br><br>
+<div class="container" style="background-color: rgb(255,255,255); padding: 20px; padding-top: 2px; box-shadow: 0 0 10px;">
+<h1>Results</h1>
+	<table class="striped">
+		<thead>
+			<td>Name</td>
+			<td>Grade</td>
+		</thead>
+
+		{% for student in students %}
+		<tr>
+			<td>{{ student.name }}</td>
+			<td>{{ student.grade }}</td>
+		</tr>
+		{% endfor %}
+	</table>
+
+	<a href="/"> Nothing else to show, click here to return home</a>
+</div>
+</body>
+</html>
